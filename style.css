@@ -1,3 +1,30 @@
+:root {
+  --right-top-padding : 30px;
+  --left-top-padding : 0px;
+  --image-size : 200px;
+  --decoration-height : 400px;
+  /* --text-color : aliceblue; */
+
+  --header-text-color : black;
+
+  --text-color : black;
+
+  --bottom-skew-color : #fefae0;
+  --top-skew-color : #faedcd;
+
+  --font-size : 18px;
+
+  --small-font-size : 15px;
+
+  --rounded-border-color : #0096c7;
+
+  --seperator-color : black;
+  /*
+  --gradient-from : rgb(33,2,59);
+  --gradient-to : rgba(54,1,117,1);
+  */
+}
+
 @font-face {
   font-family: Ubuntu-Medium;
   src: url(./fonts/Ubuntu-Medium.ttf);
@@ -14,10 +41,83 @@
 }
 
 body {
-	margin : 5em;
+	margin : 0;
 	font-size : 1.2em;
 	font-family: Ubuntu-Medium;
+	overflow : hidden;
 }
+
+@media print {
+	body {
+		margin : 0;
+		font-size : 1.2em;
+		font-family: Ubuntu-Medium;
+		overflow : hidden;
+	}
+}
+
+
+
+main {
+	position : relative;
+	z-index : 20;
+	margin : 3em;
+}
+
+
+header {
+  position : relative;
+}
+
+
+div.skewTop1 {
+  background-color : var(--top-skew-color);
+  transform: skewY(10deg) translateY(-25vh);
+  min-width : 100vw;
+  height : var(--decoration-height);
+  position : absolute;
+  z-index : 10;
+}
+
+
+div.skewTop1::after {
+  background-color : var(--bottom-skew-color);
+  transform: skewY(-2deg) translateY(-2vh);
+  min-width : 100vw;
+  height : var(--decoration-height);
+  content : '';
+  position : absolute;
+  z-index : 9;
+}
+
+
+div.skewTop2 {
+  background-color : var(--top-skew-color);
+  transform: skewY(-25deg) translateY(-40vh);
+  min-width : 100vw;
+  height : var(--decoration-height);
+  position : absolute;
+  z-index : 20;
+}
+
+
+div.skewTop2::after {
+  background-color : var(--bottom-skew-color);
+  transform: skewY(2deg) translateY(-2vh);
+  min-width : 100vw;
+  height : var(--decoration-height);
+  content : '';
+  position : absolute;
+  z-index : 19;
+}
+
+
+
+h4 {
+	font-size : 2em;
+	margin-bottom : 2em;
+}
+
 
 
 p {
@@ -28,4 +128,17 @@ pre {
 	margin : 0;
 	padding : 0;
 	font-family: Ubuntu-Medium;
+}
+
+
+div.box {
+	position : fixed;
+	right : -15%;
+	bottom : -15%;
+	width : 500px;
+	height : 400px;
+	transform : rotate(-50deg);
+	background: radial-gradient(var(--bottom-skew-color), var(--bottom-skew-color));
+	border-radius : 50%;
+	filter : blur(65px);
 }
